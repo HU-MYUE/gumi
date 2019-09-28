@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { View, Text, Button, StyleSheet, Image, TouchableOpacity,TextInput, ScrollView } from 'react-native';
- 
 export default class ToSelect extends Component {
   constructor(props) {
     super(props);
@@ -20,6 +19,7 @@ export default class ToSelect extends Component {
       activeBtn: index,
     })
   }
+  
   render() {
     let {statrArr} = this.state;
     return (
