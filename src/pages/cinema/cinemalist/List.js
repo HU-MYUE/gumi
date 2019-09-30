@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, Text, View, TouchableOpacity, Alter } from 'react-native';
 
 export default class List extends Component {
+  // _onPressButton() {
+  //   Alert.alert('You tapped the button!')
+  // }
+  _likeAction() {
+    Alter.alter("点击进入")
+  }
   render() {
     return (
       <View >
@@ -9,74 +15,87 @@ export default class List extends Component {
           data={[
             {
               id: '1', cinemaName: '中影泰得影城（缤纷店）', moviePrice: '35.9',
-              cinameLocation: '高新区锦业路与丈八二路十字东北角绿地缤纷荟4层2201', cinemaDistance: '0.7', cinemaLabel: '3D眼镜', cinemaLabel1: '可停车'
+              cinameLocation: '高新区锦业路与丈八二路十字东北角绿地缤纷荟4层2201', cinemaDistance: '0.7', cinemaLabel: ['3D眼镜','可停车']
             },
             {
               id: '2', cinemaName: '大地影院（西安人人乐）', moviePrice: '29',
-              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: '可停车'
+              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: ['可停车']
             },
             {
               id: '3', cinemaName: '大地影院（西安人人乐）', moviePrice: '29',
-              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: '可停车'
+              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: ['可停车']
             },
             {
               id: '4', cinemaName: '大地影院（西安人人乐）', moviePrice: '29',
-              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: '可停车'
+              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: ['可停车']
             },
             {
               id: '5', cinemaName: '大地影院（西安人人乐）', moviePrice: '29',
-              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: '可停车'
+              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: ['可停车']
             },
             {
               id: '6', cinemaName: '大地影院（西安人人乐）', moviePrice: '29',
-              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: '可停车'
+              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: ['可停车']
             },
             {
               id: '7', cinemaName: '大地影院（西安人人乐）', moviePrice: '29',
-              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: '可停车'
+              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: ['可停车']
             },
             {
               id: '8', cinemaName: '大地影院（西安人人乐）', moviePrice: '29',
-              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: '可停车'
+              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: ['可停车']
             },
             {
               id: '9', cinemaName: '大地影院（西安人人乐）', moviePrice: '29',
-              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: '可停车'
+              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: ['可停车']
             },
             {
               id: '10', cinemaName: '大地影院（西安人人乐）', moviePrice: '29',
-              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: '可停车'
+              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: ['可停车']
             },
             {
               id: '11', cinemaName: '大地影院（西安人人乐）', moviePrice: '29',
-              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: '可停车'
+              cinameLocation: '雁塔区电子一路18号栗园商业广场6楼', cinemaDistance: '4.3', cinemaLabel: ['可停车']
             },
 
 
           ]}
           renderItem={({ item }) =>
-            <View style={styles.cinema}>
+            <TouchableOpacity onPress={() => {
+              alert('进入影院详情页!')
+            }} underlayColor="white">
 
-              <View style={styles.viewdetail}>
+              <View style={styles.cinema}>
+                {/* <TouchableHighlight onPress={this. _likeAction}> */}
 
-                <Text style={styles.cinemaName}>{item.cinemaName}</Text>
-                <Text style={styles.moviePrice}>￥{item.moviePrice}起</Text>
+                <View style={styles.viewdetail}>
+                  {/* <TouchableOpacity onPress={ alert('You tapped the button!')} underlayColor="white"> */}
+                  <Text style={styles.cinemaName} >{item.cinemaName}</Text>
+                  <Text style={styles.moviePrice}>￥{item.moviePrice}起</Text>
+                  {/* </TouchableOpacity> */}
+                </View>
+
+                <View style={styles.viewdetail}>
+                  {item.cinameLocation.length > 23 ? <Text style={styles.cinameLocation}>{item.cinameLocation.substring(0, 23)}...</Text> : <Text style={styles.cinameLocation}>{item.cinameLocation}</Text>}
+                  <Text style={styles.cinemaDistance}>{item.cinemaDistance}km</Text>
+                </View>
+
+                <View style={styles.viewdetail1}>
+                 {item.cinemaLabel.map((index)=>
+                    
+                    // <Text  style={styles.cinemaLabel}> {index.label}</Text>
+                    <Text  style={styles.cinemaLabel}> {index}</Text>
+    
+                    )}
+                  {/* console.log({item.cinemaLabel.map(item,index)}<Text key={index} style={styles.cinemaLabel}>{item.cinemaLabel}</Text>) */}
+                </View>
 
               </View>
 
-
-              <View style={styles.viewdetail}>
-                {item.cinameLocation.length > 23 ? <Text style={styles.cinameLocation}>{item.cinameLocation.substring(0, 23)}...</Text> : <Text style={styles.cinameLocation}>{item.cinameLocation}</Text>}
-                <Text style={styles.cinemaDistance}>{item.cinemaDistance}km</Text>
-              </View>
-              <View style={styles.viewdetail1}>
-                
-                <Text style={styles.cinemaLabel}>{item.cinemaLabel}</Text>
-                {item.cinemaLabel1 ? <Text style={styles.cinemaLabel1}>{item.cinemaLabel1}</Text>:<Text></Text> }
-              </View>
-            </View>
+            </TouchableOpacity>
 
           }
+
         />
       </View>
     );
@@ -101,8 +120,8 @@ var styles = StyleSheet.create({
   viewdetail1: {
     flexDirection: "row",
     marginBottom: 10,
-    marginLeft:10,
-    marginRight:100,
+    marginLeft: 10,
+    marginRight: 100,
   },
 
   cinemaName: {

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  View,
-  Text
+    AppRegistry,
+    StyleSheet,
+    View,
+    Text
 } from 'react-native';
- 
+
 import NaviBar from './NaviBar';
 import Banner from './Banner';
- 
+
 export default class Movie extends Component {
-  // 构造
+    // 构造
     constructor(props) {
         super(props);
         // 初始状态
@@ -18,7 +18,7 @@ export default class Movie extends Component {
         // 不同的Page,需要修改下面的这个数组, 通过数组控制导航栏条目显示状态
         this.naviStatus = [1, 0];
     }
- 
+
     onNaviBarPress(aNumber) {
         //不同的page需要修改下面这个switch的处理逻辑
         switch (aNumber) {
@@ -32,18 +32,18 @@ export default class Movie extends Component {
                 return;
         }
     }
- 
+
     render() {
         return (
             <View style={styles.container}>
                 <NaviBar naviBarStatus={this.naviStatus}
-                         onNaviBarPress={this.onNaviBarPress}/>
-                <View style={styles.whatLeft}/>
+                    onNaviBarPress={this.onNaviBarPress} />
+                <View style={styles.whatLeft} />
             </View>
         );
     }
 }
- 
+
 const styles = StyleSheet.create({
     container: {
         flex: 1
@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
         flex: 1,
         borderTopWidth: 1,
         borderColor: 'black',
-        backgroundColor:'orange' //每个界面背景颜色不一样
+        backgroundColor: 'orange' //每个界面背景颜色不一样
     }
 });

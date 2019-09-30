@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { View, Text, Button, StyleSheet, Image, TouchableOpacity,TextInput, ScrollView } from 'react-native';
+import React, { Component } from 'react';
+import { View, Text, Button, StyleSheet, Image, TouchableOpacity, TextInput, ScrollView } from 'react-native';
 export default class ToSelect extends Component {
   constructor(props) {
     super(props);
@@ -7,7 +7,7 @@ export default class ToSelect extends Component {
       statrArr: [{
         title: '影片',
         index: 1,
-      },{
+      }, {
         title: '影院',
         index: 2,
       }],
@@ -19,20 +19,20 @@ export default class ToSelect extends Component {
       activeBtn: index,
     })
   }
-  
+
   render() {
-    let {statrArr} = this.state;
+    let { statrArr } = this.state;
     return (
       <View style={styles.container}>
-      {
-        statrArr ? statrArr.map((list, index) => {
-          return (
-            <View key={index} style={styles.view}><Text style={[styles.btn, list.index === this.state.activeBtn ? styles.activeColor : styles.btn]} onPress={() => {
+        {
+          statrArr ? statrArr.map((list, index) => {
+            return (
+              <View key={index} style={styles.view}><Text style={[styles.btn, list.index === this.state.activeBtn ? styles.activeColor : styles.btn]} onPress={() => {
                 this._activeBtn(list.index)
               }}>{list.title}</Text></View>
-          )
-        }) : ''
-      }
+            )
+          }) : ''
+        }
       </View>
     );
   }
@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
     position: 'relative',
     flexDirection: "row",
     justifyContent: "center",
-    alignItems:'flex-start', 
+    alignItems: 'flex-start',
   },
   view: {
     flexDirection: "row",
     justifyContent: "center",
-    alignItems:'flex-start',  
+    alignItems: 'flex-start',
   },
   btn: {
     borderStyle: 'solid',
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'PingFang-SC-Medium',
   },
- 
+
 })
- 
+
 
